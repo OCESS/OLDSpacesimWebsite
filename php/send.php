@@ -66,7 +66,7 @@
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>
 		<title>OCE SpaceSim</title>
 		<meta charset="UTF-8">
