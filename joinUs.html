@@ -33,14 +33,17 @@
 
         <div class="col-md-10 col-md-offset-1 well">
             <!-- Map, address and other quick info -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div id="map"></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <p id="joinUsText">All high school age students students in the Ottawa area are eligible to join Spacesim. Work sessions are held in room W027
             on the first floor of 440 Albert Street (the Ottawa Technical High School Building) from 3:30 pm - 10 pm. Members are not
             obliged to stay for the entirety of a work session, and are free to come and go as they please. If you have any questions,
-            please email us at ocespacesim@gmail.com.</p>
+            please email us at ocespacesim@gmail.com.
+            <br><br>
+            If you're a Lisgar student, feel free to drop by room 414 (fourth floor) at any time during lunch. There's always someone there who would be
+                happy to answer your questions.</p>
             </div>
             <br>
             
@@ -52,65 +55,70 @@
     </footer>
     <!-- Google Maps -->
     <!-- Load API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvOBtdKCSeVozN_mpUUCj9-1YMeJvd0ts&signed_in=true&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvOBtdKCSeVozN_mpUUCj9-1YMeJvd0ts&callback=initMap"></script>
     <!-- Make the map -->
     <script>
     function initMap() {
+            
+        // Object with Space Sim location
+        var spaceSim = {
+            lat: 45.41691219999999,
+            lng: -75.70647889999998
+        };
         
-    // Object with Space Sim location
-    var spaceSim = {
-        lat: 45.41691219999999,
-        lng: -75.70647889999998
-    };
-    
-    // Object with Lisgar location
-    var lisgar = {
-        lat: 45.420248,
-        lng: -75.68910110000002
-    };
+        // Object with Lisgar location
+        var lisgar = {
+            lat: 45.420248,
+            lng: -75.68910110000002
+        };
 
-    // Create the map
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: spaceSim
-    });
-    
-    // Space Sim info window
-    var spaceSimInfoWindow = new google.maps.InfoWindow({
-        content: '<p style="color: black">440 Albert Street, where work sessions take place every Friday.</p>'
-    });
-    
-    // Lisgar info window
-    var lisgarInfoWindow = new google.maps.InfoWindow({
-        content: '<p style="color: black">Lisgar Collegiate Institute, where a large portion of Space Sim members come from.</p>'
-    });
-    
-    // Create Space Sim location marker
-    var spaceSimMarker = new google.maps.Marker({
-        position: spaceSim,
-        map: map,
-        title: '440 Albert Street',
-        label: 'S'
-    });
-    
-    // Spacesim event listener to open info window on click
-    spaceSimMarker.addListener('click', function() {
-        spaceSimInfoWindow.open(map, spaceSimMarker);
-    });
-    
-    // Lisgar event listener for info window
-    lisgarMarker.addListener('click', function() {
-        lisgarInfoWindow.open(map, lisgarMarker);
-    });
-    
-    // Create Lisgar location marker
-    var lisgarMarker = new google.maps.Marker({
-        position: lisgar,
-        map: map,
-        title: 'Lisgar Collegiate Institute',
-        label: 'L'
-    });
+        // Create the map
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: {
+                lat: 45.4187463,
+                lng: -75.698228
+            }
+        });
+        
+        // Space Sim info window
+        var spaceSimInfoWindow = new google.maps.InfoWindow({
+            content: '<p style="color: black">440 Albert Street, where work sessions take place every Friday.</p>'
+        });
+        
+        // Lisgar info window
+        var lisgarInfoWindow = new google.maps.InfoWindow({
+            content: '<p style="color: black">Lisgar Collegiate Institute, where a large portion of Space Sim members come from.</p>'
+        });
+        
+        // Create Space Sim location marker
+        var spaceSimMarker = new google.maps.Marker({
+            position: spaceSim,
+            map: map,
+            title: "440 Albert Street",
+            label: "S"
+        });
+        
+        // Spacesim event listener to open info window on click
+        spaceSimMarker.addListener("click", function() {
+            spaceSimInfoWindow.open(map, spaceSimMarker);
+        });
+
+        // Create Lisgar location marker
+        var lisgarMarker = new google.maps.Marker({
+            position: lisgar,
+            map: map,
+            title: "Lisgar Collegiate Institute",
+            label: "L"
+        });
+        
+        // Lisgar event listener for info window
+        lisgarMarker.addListener("click", function() {
+            lisgarInfoWindow.open(map, lisgarMarker);
+        });
+
     }
+
     </script>
 </body>
 </html>
