@@ -1,3 +1,5 @@
+# THIS REPO IS DEAD. THE WEBSITE IS NOW AT https://github.com/OCESS/SpacesimWebsite/
+
 ## Spacesim Website
 
 The official website for the Ottawa Carleton Educational Space Simuation. It is currently hosted at www2.spacesim.org
